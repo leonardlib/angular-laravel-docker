@@ -7,7 +7,12 @@ RUN ["chmod", "+x", "/usr/sbin/install-node.sh"]
 RUN /usr/sbin/install-node.sh
 
 # Angular
-RUN npm install -g --silent @angular/cli@6.2.4
+RUN npm install -g --silent @angular/cli
+
+# PostgreSQL
+ADD install-pgsql.sh /usr/sbin/install-pgsql.sh
+RUN ["chmod", "+x", "/usr/sbin/install-pgsql.sh"]
+RUN /usr/sbin/install-pgsql.sh
 
 # Setup Angular project
 #RUN mkdir /usr/src/app
