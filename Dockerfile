@@ -9,5 +9,8 @@ RUN apt-get update && apt-get install -y libpq-dev && docker-php-ext-install pdo
 # Enable the PostgreSQL extension
 ENV PHP_EXTENSION_PGSQL=1
 
+# Copy .htaccess to rewrite module works with Angular
+COPY .htaccess /var/www/html
+
 # Setup Laravel project
 RUN if [ ! -d "/var/www/html/laravel" ]; then mkdir /var/www/html/laravel; fi
